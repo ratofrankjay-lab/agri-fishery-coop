@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agri-Fishery Cooperative Order and Inventory System</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Agri-Fishery Cooperative Order and Inventory System</h1>
+    <nav>
+      <button data-view="products">Products</button>
+      <button data-view="orders">Orders</button>
+      <button data-view="report">Report</button>
+    </nav>
+  </header>
+
+  <!-- Success and error messages appear here -->
+  <div id="message" role="alert"></div>
+
+  <main>
+    <!-- PRODUCTS -->
+    <section id="products-view">
+      <h2>Products</h2>
+
+      <form id="product-form">
+        <input type="hidden" id="product-id">
+        <label>Name <input type="text" id="product-name"></label>
+        <label>Category
+          <select id="product-category">
+            <option value="">-- Select --</option>
+            <option value="Crop">Crop</option>
+            <option value="Fishery">Fishery</option>
+          </select>
+        </label>
+        <label>Price per kg <input type="number" id="product-price" step="0.01"></label>
+        <label>Stock (kg) <input type="number" id="product-stock" step="0.01"></label>
+        <button type="submit" id="product-submit">Add Product</button>
+        <button type="button" id="product-cancel">Cancel Edit</button>
+      </form>
+
+      <label>Filter by category
+        <select id="product-filter">
+          <option value="">All</option>
+          <option value="Crop">Crop</option>
+          <option value="Fishery">Fishery</option>
+        </select>
+      </label>
+
+      <table id="product-table">
+        <thead>
+          <tr><th>Name</th><th>Category</th><th>Price/kg</th><th>Stock (kg)</th><th>Actions</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- ORDERS -->
+    <section id="orders-view"document.getElementById("message").innerHTML = '<div class="success">Test success</div>';
+        document.getElementById("message").innerHTML = '<div class="error">Test error</div>';>
+      <h2>New Order</h2>
+
+      <form id="order-form">
+        <label>Buyer name <input type="text" id="order-buyer"></label>
+        <label>Contact number <input type="text" id="order-contact"></label>
+        <label>Order date <input type="date" id="order-date"></label>
+
+        <h3>Items</h3>
+        <label>Product <select id="item-product"></select></label>
+        <label>Kg <input type="number" id="item-kg" step="0.01"></label>
+        <button type="button" id="add-item">Add Item</button>
+
+        <table id="item-table">
+          <thead>
+            <tr><th>Product</th><th>Kg</th><th>Price/kg</th><th>Line Total</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <p>Order total: <strong id="order-total">0.00</strong></p>
+
+        <button type="submit">Save Order</button>
+      </form>
+
+      <h2>Order List</h2>
+      <div id="order-filters">
+        <input type="text" id="order-search" placeholder="Search buyer">
+        <select id="order-status-filter">
+          <option value="">All statuses</option>
+          <option value="Pending">Pending</option>
+          <option value="Confirmed">Confirmed</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+        <input type="date" id="order-date-filter">
+      </div>
+
+      <table id="order-table">
+        <thead>
+          <tr><th>Order #</th><th>Buyer</th><th>Date</th><th>Total</th><th>Status</th><th>Actions</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- ORDER DETAIL -->
+    <section id="order-detail-view" hidden>
+      <h2>Order Detail</h2>
+      <button type="button" id="back-to-orders">Back to Orders</button>
+      <div id="order-detail"></div>
+    </section>
+
+    <!-- REPORT -->
+    <section id="report-view" hidden>
+      <h2>Report</h2>
+      <div id="report-output"></div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>     
